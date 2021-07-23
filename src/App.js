@@ -9,6 +9,7 @@ function App() {
     row: 0,
     col: 0,
   });
+
   const [tag, setTag] = useState("wall");
   return (
     <div className="App">

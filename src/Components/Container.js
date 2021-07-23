@@ -6,6 +6,11 @@ function Container(props) {
   const [mouseDown, setMouseDown] = useState(false);
   const [arr, setArr] = useState([]);
 
+  const [path, setPath] = useState({
+    start: [-1,-1],
+    end: [-1,-1],
+  });
+
   const result = [];
   if (arr.length > 0)
     for (let i = 0; i < arr.length; ++i) {
@@ -23,6 +28,8 @@ function Container(props) {
             wall={arr[i][j] === 1}
             start={arr[i][j] === -1}
             end={arr[i][j] === 2}
+            path={path}
+            setPath={setPath}
           />
         );
       }

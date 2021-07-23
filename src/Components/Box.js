@@ -14,6 +14,20 @@ function Box(props) {
         const updateValue =
           props.tag === "start" ? -1 : props.tag === "end" ? 2 : 1;
 
+        if (props.tag === "start") {
+          if (props.path.start[0] > -1 && props.path.start[1] > -1) {
+            myArr[props.path.start[0]][props.path.start[1]] = 0;
+          }
+          props.setPath({ ...props.path, start: [i, j] });
+        }
+
+        if (props.tag === "end") {
+          if (props.path.end[0] > -1 && props.path.end[1] > -1) {
+            myArr[props.path.end[0]][props.path.end[1]] = 0;
+          }
+          props.setPath({ ...props.path, end: [i, j] });
+        }
+
         myArr[i][j] === updateValue
           ? (myArr[i][j] = 0)
           : (myArr[i][j] = updateValue);
